@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dentleen</title>
+    <title>DENTLEEN</title>
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="دنت لين, dentleen, Dentleen, منتجات اسنان, SDF, مواد اسنان, مستلزمات طبية">
+    <meta name="description" content="شركة Dentleen تقدم حلول متكاملة لعيادات الأسنان. اكتشف منتجاتنا المميزة من SDF، MTA، وغيرها بجودة عالية وأسعار تنافسية.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="image_d71077.png">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome for icons -->
@@ -37,6 +43,7 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
             display: none; /* Initially hidden */
             justify-content: center;
             align-items: center;
@@ -49,9 +56,9 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
             text-align: center;
             max-width: 90%;
-            width: 400px;
+            width: 500px;
         }
-
+        
         /* Loading Indicator Styles */
         #loadingOverlay {
             position: fixed;
@@ -85,7 +92,7 @@
     <header class="bg-white shadow-lg p-4 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center">
             <div class="flex items-center gap-2">
-                <img src="image_1b3cde.png" alt="Dentleen Logo" class="h-10 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/100x40/f0f2f5/0b5351?text=Dentleen+Logo';">
+                <img src="image_1b3cde.png" alt="Dentleen Logo" class="h-10 w-auto">
             </div>
 
             <nav class="hidden md:flex md:gap-12 items-center">
@@ -138,6 +145,9 @@
                             4ml: 1190 L.E
                         </button>
                     </div>
+                    <button class="view-details-btn mt-4 inline-block w-full bg-gray-200 text-gray-800 px-6 py-2 rounded-full font-semibold hover:bg-gray-300 transition-colors duration-300" data-product="SDF">
+                        عرض التفاصيل
+                    </button>
                 </div>
 
                 <!-- Product 2: MTA -->
@@ -319,6 +329,17 @@
             </button>
         </div>
     </div>
+    
+    <!-- Product Details Modal -->
+    <div id="productDetailsModal" class="modal-overlay">
+        <div class="modal-content max-w-sm p-6 rounded-lg">
+            <img id="product-details-image" src="" alt="Product Image" class="w-full h-auto mb-4 rounded-xl hidden">
+            <div id="product-details-body" class="text-gray-700 text-right space-y-4">
+                <!-- Product details will be injected here -->
+            </div>
+            <button id="closeProductDetailsModal" class="mt-6 bg-gray-200 text-gray-800 px-6 py-2 rounded-full font-semibold hover:bg-gray-300 transition-colors duration-300 w-full">إغلاق</button>
+        </div>
+    </div>
 
     <!-- Loading Overlay (kept for future use if needed, but not used in this version) -->
     <div id="loadingOverlay" class="flex flex-col gap-4">
@@ -346,6 +367,12 @@
         const totalPriceContainer = document.getElementById('total-price-container');
         const totalPriceSpan = document.getElementById('total-price');
 
+        // Product details modal elements
+        const productDetailsModal = document.getElementById('productDetailsModal');
+        const productDetailsBody = document.getElementById('product-details-body');
+        const closeProductDetailsModalBtn = document.getElementById('closeProductDetailsModal');
+        const productDetailsImage = document.getElementById('product-details-image');
+        
         // Replace with your WhatsApp Business number, including the country code
         const whatsappNumber = '201508259538';
 
@@ -363,6 +390,24 @@
             'ROOT HEAL': { name: 'ROOT HEAL', price: 'غير محدد' },
             'HOLDENT 20g': { name: 'HOLDENT 20 جرام', price: 155 },
             'Caries detector dye 4ml': { name: 'Caries detector dye 4 مل', price: 225 }
+        };
+
+        const productDetails = {
+            'SDF': {
+                image: 'image_d5b39c.jpg',
+                body: `
+                    <div class="space-y-4 text-right">
+                        <div>
+                            <h4 class="font-bold text-xl text-teal-700">🔹 What is SDF?</h4>
+                            <ul class="list-disc list-inside space-y-2 mt-2 text-gray-700 pr-4">
+                                <li>Silver Diamine Fluoride (SDF) is a topical cariostatic agent used in dentistry.</li>
+                                <li>It is colorless to blue liquid, strongly alkaline (pH ~10).</li>
+                                <li>Approved in many countries for arresting dental caries and desensitizing dentin.</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            }
         };
 
         // قائمة المنتجات المختارة
@@ -451,6 +496,25 @@
             renderSelectedProducts();
             document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         }
+
+        // Add event listeners for "View Details" buttons
+        document.querySelectorAll('.view-details-btn').forEach(button => {
+            button.addEventListener('click', (event) => {
+                const productKey = event.target.dataset.product;
+                const details = productDetails[productKey];
+                if (details) {
+                    productDetailsImage.src = details.image;
+                    productDetailsImage.classList.remove('hidden');
+                    productDetailsBody.innerHTML = details.body;
+                    productDetailsModal.style.display = 'flex';
+                }
+            });
+        });
+        
+        // Close product details modal
+        closeProductDetailsModalBtn.addEventListener('click', () => {
+            productDetailsModal.style.display = 'none';
+        });
 
         // دالة لملء القائمة المنسدلة بالمنتجات
         function populateProductDropdown() {
@@ -543,8 +607,8 @@
             const encodedMessage = encodeURIComponent(message);
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
             
-            // Open the WhatsApp link in the same tab
-            window.location.href = whatsappUrl;
+            // Open the WhatsApp link in a new tab for desktop and mobile compatibility
+            window.open(whatsappUrl, '_blank');
             
             // Show a success message to the user
             successModal.style.display = 'flex';
@@ -563,4 +627,3 @@
     </script>
 </body>
 </html>
-
