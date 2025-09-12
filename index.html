@@ -87,6 +87,12 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        
+        /* Small image on modal */
+        #product-details-image.small-image {
+            width: 50%;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body class="text-gray-200">
@@ -124,7 +130,7 @@
                 <a href="#contact" class="smooth-scroll-link bg-teal-600 text-white px-8 py-3 rounded-full text-lg font-bold hover:bg-teal-700 transition-colors duration-300 shadow-xl">اطلب الآن</a>
             </div>
             <div class="md:w-1/2 flex justify-center">
-                <img src="logo.JPG" alt="Main Dentleen Product" class="rounded-lg shadow-2xl transform hover:scale-105 transition-transform duration-500 object-contain w-96 h-96" onerror="this.onerror=null;this.src='https://placehold.co/400x400/1a1a1a/e0e0e0?text=Main+Product';">
+                <img src="logo.png" alt="Main Dentleen Product" class="rounded-lg shadow-2xl transform hover:scale-105 transition-transform duration-500 object-contain w-96 h-96" onerror="this.onerror=null;this.src='https://placehold.co/400x400/1a1a1a/e0e0e0?text=Main+Product';">
             </div>
         </div>
     </section>
@@ -157,8 +163,11 @@
                 <div class="p-6 rounded-2xl shadow-lg product-card">
                     <img src="cdd.jpg" alt="Caries detector dye" class="w-full h-48 object-contain mb-4 rounded-xl" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/200x200/212121/e0e0e0?text=Caries+Detector';">
                     <h3 class="text-2xl font-semibold text-white mb-2">Caries detector dye</h3>
-                    <p class="text-gray-400 mb-4">4 مل: 225 جنيه</p>
-                    <button class="product-link mt-4 inline-block w-full bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="Caries detector dye 4ml">اطلب الآن</button>
+                    <p class="text-gray-400 mb-4">4gm</p>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-xl font-bold text-teal-600">225 ج.م</span>
+                        <button class="product-link bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="Caries detector dye 4ml">اطلب الآن</button>
+                    </div>
                     <button class="view-details-btn mt-4 inline-block w-full bg-gray-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-700 transition-colors duration-300" data-product="Caries detector dye">
                         عرض التفاصيل
                     </button>
@@ -168,8 +177,12 @@
                 <div class="p-6 rounded-2xl shadow-lg product-card">
                     <img src="mta.jpg" alt="MTA Product" class="w-full h-48 object-contain mb-4 rounded-xl" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/200x200/212121/e0e0e0?text=MTA';">
                     <h3 class="text-2xl font-semibold text-white mb-2">MTA</h3>
-                    <p class="text-gray-400 mb-4">0.25 جرام (3 عبوات): 50 جنيه</p>
-                    <button class="product-link mt-4 inline-block w-full bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="MTA 0.25g">اطلب الآن</button>
+                    <p class="text-gray-400 mb-4">0.25gm
+                    </p>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-xl font-bold text-teal-600">50 ج.م</span>
+                        <button class="product-link bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="MTA 0.25g">اطلب الآن</button>
+                    </div>
                     <button class="view-details-btn mt-4 inline-block w-full bg-gray-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-700 transition-colors duration-300" data-product="MTA">
                         عرض التفاصيل
                     </button>
@@ -179,81 +192,115 @@
                 <div class="p-6 rounded-2xl shadow-lg product-card">
                     <img src="beld-of.png" alt="HEMOSTATIC LIQUID" class="w-full h-48 object-contain mb-4 rounded-xl" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/200x200/212121/e0e0e0?text=HEMOSTATIC+LIQUID';">
                     <h3 class="text-2xl font-semibold text-white mb-2">HEMOSTATIC LIQUID</h3>
-                    <p class="text-gray-400 mb-4">15 مل: 135 جنيه</p>
-                    <button class="product-link mt-4 inline-block w-full bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="HEMOSTATIC LIQUID 15ml">اطلب الآن</button>
+                    <p class="text-gray-400 mb-4">15ml</p>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-xl font-bold text-teal-600">135 ج.م</span>
+                        <button class="product-link bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="HEMOSTATIC LIQUID 15ml">اطلب الآن</button>
+                    </div>
                     <button class="view-details-btn mt-4 inline-block w-full bg-gray-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-700 transition-colors duration-300" data-product="HEMOSTATIC LIQUID">
                         عرض التفاصيل
                     </button>
                 </div>
                 
-                <!-- Product 5: D-Seal -->
+                <!-- Product 5: D-Seal 12g -->
                 <div class="p-6 rounded-2xl shadow-lg product-card">
-                    <img src="d-seal.png" alt="D-Seal Product" class="w-full h-48 object-contain mb-4 rounded-xl" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/200x200/212121/e0e0e0?text=D-Seal';">
-                    <h3 class="text-2xl font-semibold text-white mb-2">D-Seal</h3>
-                    <p class="text-gray-400 mb-4">12 جرام: 400 جنيه</p>
-                    <button class="product-link mt-4 inline-block w-full bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="D-Seal 12g">اطلب الآن</button>
+                    <img src="d-seal.png" alt="D-Seal Product" class="w-full h-48 object-contain mb-4 rounded-xl" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/200x200/212121/e0e0e0?text=D-Seal+12g';">
+                    <h3 class="text-2xl font-semibold text-white mb-2">D-Seal 12gm</h3>
+                    <p class="text-gray-400 mb-4">12g automix syringe</p>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-xl font-bold text-teal-600">400 ج.م</span>
+                        <button class="product-link bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="D-Seal 12g">اطلب الآن</button>
+                    </div>
                     <button class="view-details-btn mt-4 inline-block w-full bg-gray-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-700 transition-colors duration-300" data-product="D-Seal">
                         عرض التفاصيل
                     </button>
                 </div>
+                
+                <!-- Product 6: D-Seal 8g (New product) -->
+                <div class="p-6 rounded-2xl shadow-lg product-card">
+                    <img src="d-seal.png" alt="D-Seal 8g Product" class="w-full h-48 object-contain mb-4 rounded-xl" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/200x200/212121/e0e0e0?text=D-Seal+8g';">
+                    <h3 class="text-2xl font-semibold text-white mb-2">D-Seal 8gm</h3>
+                    <p class="text-gray-400 mb-4">سرنجتين منفصلتان، كل منها 4 جرام.base-catalyst</p>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-xl font-bold text-teal-600">300 ج.م</span>
+                        <button class="product-link bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="D-Seal 8g">اطلب الآن</button>
+                    </div>
+                    <button class="view-details-btn mt-4 inline-block w-full bg-gray-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-700 transition-colors duration-300" data-product="D-Seal 8g">
+                        عرض التفاصيل
+                    </button>
+                </div>
 
-                <!-- Product 6: Edta -->
+                <!-- Product 7: Edta -->
                 <div class="p-6 rounded-2xl shadow-lg product-card">
                     <img src="edta.png" alt="Edta" class="w-full h-48 object-contain mb-4 rounded-xl" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/200x200/212121/e0e0e0?text=EDTA';">
                     <h3 class="text-2xl font-semibold text-white mb-2">Edta</h3>
-                    <p class="text-gray-400 mb-4">5 جرام: 170 جنيه</p>
-                    <button class="product-link mt-4 inline-block w-full bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="Edta 5g">اطلب الآن</button>
+                    <p class="text-gray-400 mb-4">5gm</p>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-xl font-bold text-teal-600">170 ج.م</span>
+                        <button class="product-link bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="Edta 5g">اطلب الآن</button>
+                    </div>
                     <button class="view-details-btn mt-4 inline-block w-full bg-gray-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-700 transition-colors duration-300" data-product="Edta">
                         عرض التفاصيل
                     </button>
                 </div>
 
-                <!-- Product 7: Porcelain Acid Etch -->
+                <!-- Product 8: Porcelain Acid Etch -->
                 <div class="p-6 rounded-2xl shadow-lg product-card">
                     <img src="porclean.png" alt="Porcelain Acid Etch" class="w-full h-48 object-contain mb-4 rounded-xl" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/200x200/212121/e0e0e0?text=Porcelain+Acid+Etch';">
                     <h3 class="text-2xl font-semibold text-white mb-2">Porcelain Acid Etch</h3>
-                    <p class="text-gray-400 mb-4">2.5 جرام: 170 جنيه</p>
-                    <button class="product-link mt-4 inline-block w-full bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="Porcelain Acid Etch 5g">اطلب الآن</button>
+                    <p class="text-gray-400 mb-4">2.5gm</p>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-xl font-bold text-teal-600">170 ج.م</span>
+                        <button class="product-link bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="Porcelain Acid Etch 5g">اطلب الآن</button>
+                    </div>
                     <button class="view-details-btn mt-4 inline-block w-full bg-gray-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-700 transition-colors duration-300" data-product="Porcelain Acid Etch">
                         عرض التفاصيل
                     </button>
                 </div>
 
-                <!-- Product 8: Etch -->
+                <!-- Product 9: Etch -->
                 <div class="p-6 rounded-2xl shadow-lg product-card">
                     <img src="etch.jpg" alt="Etch Product" class="w-full h-48 object-contain mb-4 rounded-xl" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/200x200/212121/e0e0e0?text=Etch';">
                     <h3 class="text-2xl font-semibold text-white mb-2">Etch</h3>
-                    <p class="text-gray-400 mb-4">5 جرام: 50 جنيه</p>
-                    <button class="product-link mt-4 inline-block w-full bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="Etch 5g">اطلب الآن</button>
+                    <p class="text-gray-400 mb-4">5gm</p>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-xl font-bold text-teal-600">50 ج.م</span>
+                        <button class="product-link bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="Etch 5g">اطلب الآن</button>
+                    </div>
                     <button class="view-details-btn mt-4 inline-block w-full bg-gray-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-700 transition-colors duration-300" data-product="Etch">
                         عرض التفاصيل
                     </button>
                 </div>
 
-                <!-- Product 9: ROOT HEAL -->
+                <!-- Product 10: ROOT HEAL -->
                 <div class="p-6 rounded-2xl shadow-lg product-card">
                     <img src="root heal.png" alt="ROOT HEAL" class="w-full h-48 object-contain mb-4 rounded-xl" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/200x200/212121/e0e0e0?text=Root+Heal';">
                     <h3 class="text-2xl font-semibold text-white mb-2">ROOT HEAL</h3>
-                    <p class="text-gray-400 mb-4">منتج طبي للأسنان لضمان شفاء مثالي.</p>
-                    <p class="text-xl font-bold text-teal-600 mt-4">110 ج.م</p>
-                    <button class="product-link mt-4 inline-block w-full bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="ROOT HEAL">اطلب الآن</button>
+                    <p class="text-gray-400 mb-4">5gm</p>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-xl font-bold text-teal-600">110 ج.م</span>
+                        <button class="product-link bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="ROOT HEAL">اطلب الآن</button>
+                    </div>
                     <button class="view-details-btn mt-4 inline-block w-full bg-gray-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-700 transition-colors duration-300" data-product="ROOT HEAL">
                         عرض التفاصيل
                     </button>
                 </div>
 
-                <!-- Product 10: HOLDENT ADHESIVE -->
+                <!-- Product 11: HOLDENT ADHESIVE -->
                 <div class="p-6 rounded-2xl shadow-lg product-card">
                     <img src="hole.PNG" alt="HOLDENT ADHESIVE" class="w-full h-48 object-contain mb-4 rounded-xl" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/200x200/212121/e0e0e0?text=Holdent';">
                     <h3 class="text-2xl font-semibold text-white mb-2">HOLDENT</h3>
-                    <p class="text-gray-400 mb-4">20 جرام: 155 جنيه</p>
-                    <button class="product-link mt-4 inline-block w-full bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="HOLDENT 20g">اطلب الآن</button>
+                    <p class="text-gray-400 mb-4">20gm</p>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-xl font-bold text-teal-600">155 ج.م</span>
+                        <button class="product-link bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="HOLDENT 20g">اطلب الآن</button>
+                    </div>
                     <button class="view-details-btn mt-4 inline-block w-full bg-gray-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-700 transition-colors duration-300" data-product="HOLDENT">
                         عرض التفاصيل
                     </button>
                 </div>
                 
-                <!-- Product 11: Package -->
+                <!-- Product 12: Package -->
                 <div class="p-6 rounded-2xl shadow-lg product-card">
                     <img src="bakedg.png" alt="Package" class="w-full h-48 object-contain mb-4 rounded-xl" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/200x200/212121/e0e0e0?text=Package';">
                     <h3 class="text-2xl font-semibold text-white mb-2">باكدج</h3>
@@ -371,8 +418,7 @@
             <p class="text-gray-400">سيتم توجيهك الآن إلى واتساب لإرسال تفاصيل طلبك. شكراً لك.</p>
             <button id="closeSuccessModal" class="mt-6 bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300">
                 إغلاق
-            </button>
-        </div>
+            </button></div>
     </div>
     
     <!-- Product Details Modal -->
@@ -428,6 +474,7 @@
             'MTA 0.25g': { name: 'MTA 0.25 جرام', price: 50 },
             'HEMOSTATIC LIQUID 15ml': { name: 'HEMOSTATIC LIQUID 15 مل', price: 135 },
             'D-Seal 12g': { name: 'D-Seal 12 جرام', price: 400 },
+            'D-Seal 8g': { name: 'D-Seal 8 جرام', price: 300 },
             'Edta 5g': { name: 'Edta 5 جرام', price: 170 },
             'Porcelain Acid Etch 5g': { name: 'Porcelain Acid Etch 5 جرام', price: 170 },
             'Etch 5g': { name: 'Etch 5 جرام', price: 50 },
@@ -437,69 +484,106 @@
             'Caries detector dye 4ml': { name: 'Caries detector dye 4 مل', price: 225 }
         };
 
+        // Product details data
         const productDetails = {
             'SDF': {
-                image: 'sdf.png',
                 body: `
-                    <div class="space-y-4 text-right">
-                        <div>
-                            <h4 class="font-bold text-xl text-teal-700">🔹 ما هو SDF؟</h4>
-                            <ul class="list-disc list-inside space-y-2 mt-2 text-gray-400 pr-4">
-                                <li>فلوريد الفضة دايامين (SDF) هو عامل موضعي يستخدم في طب الأسنان.</li>
-                                <li>هو سائل عديم اللون إلى أزرق، قلوي بقوة (pH ~10).</li>
-                                <li>موافق عليه في العديد من البلدان لوقف تسوس الأسنان وإزالة حساسية العاج.</li>
-                            </ul>
+                    <div class="space-y-4 text-left" dir="ltr">
+                        <h4 class="font-bold text-xl text-teal-700">🔹 What is SDF?</h4>
+                        <ul class="list-disc list-inside space-y-2 mt-2 text-gray-400">
+                            <li>Silver Diamine Fluoride (SDF) is a topical cariostatic agent used in dentistry.</li>
+                            <li>It is a colorless to blue liquid, strongly alkaline (pH ~10).</li>
+                            <li>Approved in many countries for arresting dental caries and desensitizing dentin.</li>
+                        </ul>
+                        <div class="pt-4 mt-4 border-t border-gray-600">
+                            <h4 class="font-bold text-xl text-teal-700">🔹 Application Method (Clinical Use)</h4>
+                            <ol class="list-decimal list-inside space-y-2 mt-2 text-gray-400">
+                                <li>Isolate tooth with cotton rolls.</li>
+                                <li>Remove debris and dry lesion.</li>
+                                <li>Apply small amount of SDF with a microbrush.</li>
+                                <li>Allow to absorb for 1–3 minutes.</li>
+                                <li>Remove excess and instruct patient not to rinse for a few minutes.</li>
+                                <li>Reapplication every 6–12 months for sustained effect.</li>
+                            </ol>
                         </div>
                     </div>
                 `
             },
             'MTA': {
-                image: 'mta.jpg',
                 body: `
-                    <div class="space-y-4 text-right">
+                    <div class="space-y-4 text-left" dir="ltr">
                         <div>
-                            <h4 class="font-bold text-xl text-teal-700">🔹 ما هو MTA؟</h4>
-                            <ul class="list-disc list-inside space-y-2 mt-2 text-gray-400 pr-4">
-                                <li>MTA (Mineral Trioxide Aggregate) هو مادة حيوية تُستخدم في طب الأسنان لإصلاح الأنسجة الصلبة.</li>
-                                <li>يُستخدم بشكل واسع في علاج لب الأسنان، إغلاق الثقوب، والتغطية المباشرة وغير المباشرة للب.</li>
-                                <li>يمتاز بقدرته على الحث على تكوين العاج والأسمنت.</li>
-                            </ul>
+                            <p class="text-right" dir="rtl">
+                                Mineral Trioxide Aggregate (MTA) is a bioactive endodontic material used for pulp therapy, perforation repair, root-end filling, and regenerative procedures.
+                            </p>
+                        </div>
+                        <div class="pt-4 mt-4 border-t border-gray-600">
+                            <h4 class="font-bold text-xl text-teal-700">🔹 Mechanism of Action</h4>
+                            <ol class="list-decimal list-inside space-y-2 mt-2 text-gray-400">
+                                <li>Hydration Reaction: When mixed with water, tricalcium silicate and dicalcium silicate hydrate and produce calcium hydroxide + C–S–H (calcium silicate hydrate) gel.</li>
+                                <li>High pH (~12): Antimicrobial effect, promotes hard tissue formation.</li>
+                                <li>Bioactivity: Calcium hydroxide reacts with phosphate ions in body fluids → forms hydroxyapatite layer at the interface.</li>
+                                <li>Sealing ability: Hydroxyapatite crystals grow into dentinal tubules → creates a biological seal.</li>
+                            </ol>
                         </div>
                     </div>
                 `
             },
             'D-Seal': {
-                image: 'd-seal.png',
                 body: `
-                    <div class="space-y-4 text-right">
-                        <div>
-                            <h4 class="font-bold text-xl text-teal-700">🔹 ما هو D-Seal؟</h4>
-                            <ul class="list-disc list-inside space-y-2 mt-2 text-gray-400 pr-4">
-                                <li>D-Seal هو مادة سد شقوق (fissure sealant) فعالة لحماية الأسنان من التسوس.</li>
-                                <li>يتم تطبيقه على الأسطح الماضغة للأسنان الخلفية.</li>
-                                <li>يُوفر حماية طويلة الأمد ويمنع تراكم البكتيريا.</li>
-                            </ul>
-                        </div>
+                    <div class="space-y-4 text-left" dir="ltr">
+                        <h4 class="font-bold text-xl text-teal-700">🔹 Properties D_Seal</h4>
+                        <ul class="list-disc list-inside space-y-2 mt-2 text-gray-400">
+                            <li>✅ Biocompatible – calcium hydroxide & CaO enhance healing.</li>
+                            <li>✅ Low solubility – resists dissolution in periapical fluids.</li>
+                            <li>✅ Good adhesion – penetrates dentinal tubules and bonds with gutta-percha.</li>
+                            <li>✅ Alkaline pH – antimicrobial, prevents bacterial regrowth.</li>
+                            <li>✅ Dimensional stability – does not shrink after setting.</li>
+                            <li>✅ Radiopaque – visible under X-ray.</li>
+                            <li>✅ Adequate working & setting time – allows proper placement
+                                <ul class="list-circle list-inside mt-1 space-y-1 ml-4">
+                                    <li>Working time: ~5–10 minutes (depending on accelerator/initiator ratio).</li>
+                                    <li>Setting time: ~40–60 minutes intraorally (varies by formulation).</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                `
+            },
+            'D-Seal 8g': {
+                body: `
+                    <div class="space-y-4 text-left" dir="ltr">
+                        <h4 class="font-bold text-xl text-teal-700">🔹 Properties D_Seal</h4>
+                        <ul class="list-disc list-inside space-y-2 mt-2 text-gray-400">
+                            <li>✅ <strong>Biocompatible</strong> – calcium hydroxide & CaO enhance healing.</li>
+                            <li>✅ <strong>Low solubility</strong> – resists dissolution in periapical fluids.</li>
+                            <li>✅ <strong>Good adhesion</strong> – penetrates dentinal tubules and bonds with gutta-percha.</li>
+                            <li>✅ <strong>Alkaline pH</strong> – antimicrobial, prevents bacterial regrowth.</li>
+                            <li>✅ <strong>Dimensional stability</strong> – does not shrink after setting.</li>
+                            <li>✅ <strong>Radiopaque</strong> – visible under X-ray.</li>
+                            <li>✅ <strong>Adequate working & setting time</strong> – allows proper placement
+                                <ul class="list-circle list-inside mt-1 space-y-1 ml-4">
+                                    <li>Working time: ~5–10 minutes (depending on accelerator/initiator ratio).</li>
+                                    <li>Setting time: ~40–60 minutes intraorally (varies by formulation).</li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                 `
             },
             'Etch': {
-                image: 'etch.jpg',
                 body: `
-                    <div class="space-y-4 text-right">
-                        <div>
-                            <h4 class="font-bold text-xl text-teal-700">🔹 ما هو Etch؟</h4>
-                            <ul class="list-disc list-inside space-y-2 mt-2 text-gray-400 pr-4">
-                                <li>Etch أو حمض الفوسفوريك هو مادة تُستخدم لتجهيز سطح السن قبل وضع الحشوات.</li>
-                                <li>يعمل على تنظيف وتخشين سطح السن لضمان التصاق أفضل للمواد الترميمية.</li>
-                                <li>ضروري في عمليات الحشوات المركبة.</li>
-                            </ul>
-                        </div>
+                    <div class="space-y-4 text-left" dir="ltr">
+                        <h4 class="font-bold text-xl text-teal-700">🔹 What is Dentleen 37% Phosphoric Acid Etch?</h4>
+                        <ul class="list-disc list-inside space-y-2 mt-2 text-gray-400">
+                            <li>A dental etching gel manufactured under the Dentleen brand.</li>
+                            <li>Contains 37% phosphoric acid ($$H_3PO_4$$) in a thixotropic gel base.</li>
+                            <li>Used in etch-and-rinse adhesive dentistry to condition enamel and dentin before bonding.</li>
+                        </ul>
                     </div>
                 `
             },
             'باكدج': {
-                image: 'bakedg.png',
                 body: `
                     <div class="space-y-4 text-right">
                         <div>
@@ -514,91 +598,121 @@
                 `
             },
             'Edta': {
-                image: 'edta.png',
                 body: `
-                    <div class="space-y-4 text-right">
-                        <div>
-                            <h4 class="font-bold text-xl text-teal-700">🔹 ما هو Edta؟</h4>
-                            <ul class="list-disc list-inside space-y-2 mt-2 text-gray-400 pr-4">
-                                <li>EDTA (Ethylene Diamine Tetra-acetic Acid) هو مادة تُستخدم في علاج الجذور.</li>
-                                <li>يساعد على إزالة الطبقة الملطخة (smear layer) من قنوات الجذر.</li>
-                                <li>يُسهل تنظيف وتعقيم القنوات قبل حشوها.</li>
+                    <div class="space-y-4 text-left" dir="ltr">
+                        <h4 class="font-bold text-xl text-teal-700">🔹 What is Dentleen EDTA Gel?</h4>
+                        <ul class="list-disc list-inside space-y-2 mt-2 text-gray-400">
+                            <li>A 17% EDTA (Ethylenediaminetetraacetic Acid) gel manufactured under the Dentleen brand.</li>
+                            <li>Used in endodontics to remove the smear layer, chelate calcium ions, and aid in root canal instrumentation.</li>
+                            <li>Gel form allows better control and lubrication compared to liquid solutions.</li>
+                        </ul>
+                        <div class="pt-4 mt-4 border-t border-gray-600">
+                            <h4 class="font-bold text-xl text-teal-700">🔹 Clinical Applications</h4>
+                            <ul class="list-disc list-inside space-y-2 mt-2 text-gray-400">
+                                <li>✅ Smear layer removal in root canals.</li>
+                                <li>✅ Used with files during canal instrumentation for lubrication.</li>
+                                <li>✅ Opens dentinal tubules, improving penetration of sealers and irrigants.</li>
+                                <li>✅ Facilitates negotiation of calcified canals.</li>
+                                <li>✅ Prepares canal walls for obturation.</li>
                             </ul>
                         </div>
                     </div>
                 `
             },
             'Porcelain Acid Etch': {
-                image: 'porclean.png',
                 body: `
-                    <div class="space-y-4 text-right">
-                        <div>
-                            <h4 class="font-bold text-xl text-teal-700">🔹 ما هو Porcelain Acid Etch؟</h4>
-                            <ul class="list-disc list-inside space-y-2 mt-2 text-gray-400 pr-4">
-                                <li>حمض البورسلين يُستخدم لتجهيز سطح البورسلين قبل تثبيت الترميمات.</li>
-                                <li>يزيد من قوة الالتصاق بين مادة البورسلين والمواد اللاصقة.</li>
-                                <li>مهم في عمليات تثبيت القشور الخزفية والتيجان.</li>
+                    <div class="space-y-4 text-left" dir="ltr">
+                        <h4 class="font-bold text-xl text-teal-700">🔹 What is Dentleen 9.5% Porcelain Etch?</h4>
+                        <ul class="list-disc list-inside space-y-2 mt-2 text-gray-400">
+                            <li>A 9.5% hydrofluoric acid (HF) gel produced under the Dentleen brand.</li>
+                            <li>Used for etching porcelain and ceramic restorations (veneers, inlays, onlays, crowns) before bonding with resin cement or composite.</li>
+                            <li>Provides micromechanical retention by creating microporosities on the ceramic surface.</li>
+                        </ul>
+                        <div class="pt-4 mt-4 border-t border-gray-600">
+                            <h4 class="font-bold text-xl text-teal-700">🔹 Clinical Applications</h4>
+                            <ul class="list-disc list-inside space-y-2 mt-2 text-gray-400">
+                                <li>✅ Etching porcelain/ceramic restorations prior to bonding (veneers, inlays, onlays, crowns).</li>
+                                <li>✅ Conditioning fractured ceramic before composite repair.</li>
+                                <li>✅ Surface treatment before applying silane coupling agent.</li>
                             </ul>
                         </div>
                     </div>
                 `
             },
             'HEMOSTATIC LIQUID': {
-                image: 'beld-of.png',
                 body: `
-                    <div class="space-y-4 text-right">
-                        <div>
-                            <h4 class="font-bold text-xl text-teal-700">🔹 ما هو Hemostatic Liquid؟</h4>
-                            <ul class="list-disc list-inside space-y-2 mt-2 text-gray-400 pr-4">
-                                <li>سائل لوقف النزيف (hemostatic) يُستخدم في طب الأسنان للتحكم في النزيف.</li>
-                                <li>مفيد أثناء عمليات أخذ الطبعات أو قبل وضع الحشوات.</li>
-                                <li>يساعد على توفير بيئة عمل جافة ونظيفة.</li>
-                            </ul>
-                        </div>
+                    <div class="space-y-4 text-left" dir="ltr">
+                        <h4 class="font-bold text-xl text-teal-700">🔹Dentleen Bleed-Off Gel – Hemostatic Dental Gel</h4>
+                        <h5 class="text-lg text-teal-500 mt-4">Purpose & Use</h5>
+                        <ul class="list-disc list-inside space-y-2 mt-2 text-gray-400">
+                            <li>A hemostatic agent designed to control gingival and pulpal bleeding during dental procedures.</li>
+                            <li>Ensures a dry and clean field before restorative, prosthodontic, or periodontal treatments.</li>
+                            <li>Useful for:
+                                <ul class="list-circle list-inside mt-1 space-y-1 ml-4">
+                                    <li>Cavity preparations near gingiva.</li>
+                                    <li>Crown & bridge impressions.</li>
+                                    <li>Periodontal surgery.</li>
+                                    <li>Scaling & root planing.</li>
+                                    <li>Direct/indirect restorations.</li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                 `
             },
             'ROOT HEAL': {
-                image: 'root heal.png',
                 body: `
-                    <div class="space-y-4 text-right">
-                        <div>
-                            <h4 class="font-bold text-xl text-teal-700">🔹 ما هو ROOT HEAL؟</h4>
-                            <ul class="list-disc list-inside space-y-2 mt-2 text-gray-400 pr-4">
-                                <li>ROOT HEAL هو مادة حيوية تُستخدم في علاج لب الأسنان والجذور.</li>
-                                <li>يساعد على تشكيل حاجز حيوي وتحفيز التئام الأنسجة.</li>
-                                <li>يُستخدم في علاج الثقوب الداخلية والخارجية.</li>
-                            </ul>
-                        </div>
+                    <div class="space-y-4 text-left" dir="ltr">
+                        <h4 class="font-bold text-xl text-teal-700">🔹 Dentleen Rootheal – Intracanal Medicament</h4>
+                        <h5 class="text-lg text-teal-500">Purpose & Clinical Use</h5>
+                        <ul class="list-disc list-inside space-y-2 mt-2 text-gray-400">
+                            <li>A root canal dressing material designed to:
+                                <ul class="list-circle list-inside mt-1 space-y-1 ml-4">
+                                    <li>Disinfect the canal between appointments.</li>
+                                    <li>Promote healing of periapical tissues.</li>
+                                    <li>Neutralize bacterial toxins (especially endotoxins from Gram-negative bacteria).</li>
+                                    <li>Aid in apexification and apexogenesis in immature teeth.</li>
+                                    <li>Provide temporary intracanal medication after instrumentation.</li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                 `
             },
             'HOLDENT': {
-                image: 'hole.PNG',
                 body: `
                     <div class="space-y-4 text-right">
                         <div>
-                            <h4 class="font-bold text-xl text-teal-700">🔹 ما هو HOLDENT؟</h4>
+                            <h4 class="font-bold text-xl text-teal-700">🔹 Dentleen Holdent – كريم مثبت أطقم الأسنان</h4>
                             <ul class="list-disc list-inside space-y-2 mt-2 text-gray-400 pr-4">
-                                <li>HOLDENT هو لاصق قوي لأطقم الأسنان.</li>
-                                <li>يُوفر ثباتاً قوياً ويمنع حركة الطقم، مما يزيد من راحة المريض وثقته.</li>
-                                <li>يتميز بسهولة التطبيق والتنظيف.</li>
+                                <li>مصمم لتثبيت الأطقم الكاملة أو الجزئية بإحكام.</li>
+                                <li>يمنع الحركة أو الانزلاق أثناء الأكل والكلام.</li>
+                                <li>يمنح المريض راحة وثقة في الحياة اليومية.</li>
+                            </ul>
+                        </div>
+                        <div class="pt-4 mt-4 border-t border-gray-600">
+                            <h4 class="font-bold text-xl text-teal-700">🔹 مميزات Dentleen Holdent</h4>
+                            <ul class="list-disc list-inside space-y-2 mt-2 text-gray-400 pr-4">
+                                <li>ثبات قوي لعدة ساعات.</li>
+                                <li>راحة وحماية من التهابات اللثة الناتجة عن حركة الطقم.</li>
+                                <li>حاجز فعال يمنع دخول بقايا الطعام.</li>
+                                <li>سهل التنظيف بدون بقايا مزعجة.</li>
+                                <li>مكوّنات آمنة طبيعية.</li>
                             </ul>
                         </div>
                     </div>
                 `
             },
             'Caries detector dye': {
-                image: 'cdd.jpg',
                 body: `
-                    <div class="space-y-4 text-right">
+                    <div class="space-y-4 text-left" dir="ltr">
                         <div>
-                            <h4 class="font-bold text-xl text-teal-700">🔹 ما هو Caries Detector Dye؟</h4>
-                            <ul class="list-disc list-inside space-y-2 mt-2 text-gray-400 pr-4">
-                                <li>صباغ كاشف التسوس هو سائل يُستخدم لتمييز العاج المصاب بالتسوس.</li>
-                                <li>يساعد على إزالة التسوس بالكامل مع الحفاظ على الأنسجة السليمة.</li>
-                                <li>ضروري لضمان نجاح الحشوات وتقليل مخاطر التسوس المتبقي.</li>
+                            <h4 class="font-bold text-xl text-teal-700">🔹 What is Selective Caries Detector Dye?</h4>
+                            <ul class="list-disc list-inside space-y-2 mt-2 text-gray-400">
+                                <li>A diagnostic aid used during cavity preparation to distinguish between infected dentin (irreversibly damaged, must be removed) and affected dentin (partially demineralized but remineralizable, should be preserved).</li>
+                                <li>Helps achieve minimal invasive dentistry (MID) by avoiding unnecessary removal of healthy dentin.</li>
                             </ul>
+                            <p class="mt-4 text-gray-400">Applied for 50 -60 seconds.</p>
                         </div>
                     </div>
                 `
@@ -692,19 +806,31 @@
             document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         }
 
+        // إضافة حركة السكرول السلسة للروابط التي لها الفئة .smooth-scroll-link
+        document.querySelectorAll('a.smooth-scroll-link[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
         // Add event listeners for "View Details" buttons
         document.querySelectorAll('.view-details-btn').forEach(button => {
             button.addEventListener('click', (event) => {
                 const productKey = event.target.dataset.product;
                 const details = productDetails[productKey];
                 if (details) {
-                    if (details.image) {
-                        productDetailsImage.src = details.image;
-                        productDetailsImage.classList.remove('hidden');
-                    } else {
-                        productDetailsImage.classList.add('hidden');
-                    }
+                    // Hide the image and clear its source
+                    productDetailsImage.classList.add('hidden');
+                    productDetailsImage.classList.remove('small-image');
+                    productDetailsImage.src = '';
+                    
+                    // Inject the body content
                     productDetailsBody.innerHTML = details.body;
+                    
+                    // Show the modal
                     productDetailsModal.style.display = 'flex';
                 }
             });
@@ -714,6 +840,7 @@
         closeProductDetailsModalBtn.addEventListener('click', () => {
             productDetailsModal.style.display = 'none';
         });
+
 
         // دالة لملء القائمة المنسدلة بالمنتجات
         function populateProductDropdown() {
@@ -741,16 +868,6 @@
             link.addEventListener('click', (event) => {
                 const productKey = event.target.dataset.product;
                 addProductToCart(productKey);
-            });
-        });
-
-        // إضافة حركة السكرول السلسة للروابط التي لها الفئة .smooth-scroll-link
-        document.querySelectorAll('a.smooth-scroll-link[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
             });
         });
 
