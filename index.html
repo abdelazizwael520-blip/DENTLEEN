@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dentleen | صفحة الهبوط</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f0f2f5;
+        }
+        .hero-bg {
+            background-color: #0b5351;
+            background-image: linear-gradient(to bottom right, #0b5351, #063130);
+        }
+        .product-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        /* تحسين عرض الصور داخل البطاقات */
+        .product-card img {
+            height: 12rem;
+            object-fit: contain;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none; /* Initially hidden */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 90%;
+            width: 400px;
+        }
+
+        /* Loading Indicator Styles */
+        #loadingOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .spinner {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #0b5351;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header Section -->
+    <header class="bg-white shadow-lg p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <img src="image_1b3cde.png" alt="Dentleen Logo" class="h-10 w-auto">
+            </div>
+
+            <nav class="hidden md:flex md:gap-12 items-center">
+                <a href="#products" class="text-gray-600 hover:text-gray-900 transition-colors duration-300 px-3">المنتجات</a>
+                <a href="#contact" class="text-gray-600 hover:text-gray-900 transition-colors duration-300 px-3">اتصل بنا</a>
+            </nav>
+            <a href="https://wa.me/2010106681114" target="_blank" class="bg-green-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-green-700 transition-colors duration-300 shadow-lg flex items-center gap-2">
+                <i class="fab fa-whatsapp"></i> تواصل معنا
+            </a>
+
+            <button class="md:hidden text-gray-600 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-20 px-4">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="text-center md:text-right md:w-1/2">
+                <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-4">أهلاً بك في شركة Dentleen</h1>
+                <p class="text-xl font-light mb-8">
+                    حلول متكاملة لعيادات الأسنان. جودة لا مثيل لها، نتائج مضمونة.
+                </p>
+                <a href="#contact" class="bg-white text-teal-600 px-8 py-3 rounded-full text-lg font-bold hover:bg-gray-100 transition-colors duration-300 shadow-xl">اطلب الآن</a>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="logo .JPG" alt="Main Dentleen Product" class="rounded-lg shadow-2xl transform hover:scale-105 transition-transform duration-500 object-contain w-96 h-96">
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 px-4 bg-gray-50">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold text-gray-800 mb-12">منتجاتنا المميزة</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+
+                <!-- Product 1: SDF -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg product-card">
+                    <img src="sdf.png" alt="SDF Product" class="w-full h-48 object-contain mb-4 rounded-xl" loading="lazy">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">SDF</h3>
+                    <p class="text-gray-600 mb-4">متوفر بحجمين مختلفين.</p>
+                    <div class="space-y-2 mt-4">
+                        <button class="product-link inline-block w-full bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="SDF 1ml">
+                            1ml: 400 L.E
+                        </button>
+                        <button class="product-link inline-block w-full bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="SDF 4ml">
+                            4ml: 1190 L.E
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2: MTA -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg product-card">
+                    <img src="mta.jpg" alt="MTA Product" class="w-full h-48 object-contain mb-4 rounded-xl" loading="lazy">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">MTA</h3>
+                    <p class="text-gray-600 mb-4">0.25 جرام (3 عبوات): 50 جنيه</p>
+                    <button class="product-link mt-4 inline-block bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="MTA 0.25g">اطلب الآن</button>
+                </div>
+
+                <!-- Product 3: D-Seal -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg product-card">
+                    <img src="d seal.png" alt="D-Seal Product" class="w-full h-48 object-contain mb-4 rounded-xl" loading="lazy">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">D-Seal</h3>
+                    <p class="text-gray-600 mb-4">12 جرام: 400 جنيه</p>
+                    <button class="product-link mt-4 inline-block bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="D-Seal 12g">اطلب الآن</button>
+                </div>
+
+                <!-- Product 4: Etch -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg product-card">
+                    <img src="etch.jpg" alt="Etch Product" class="w-full h-48 object-contain mb-4 rounded-xl" loading="lazy">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">Etch</h3>
+                    <p class="text-gray-600 mb-4">5 جرام: 50 جنيه</p>
+                    <button class="product-link mt-4 inline-block bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="Etch 5g">اطلب الآن</button>
+                </div>
+
+                <!-- Product 5: Package -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg product-card">
+                    <img src="bakedg.png" alt="Package" class="w-full h-48 object-contain mb-4 rounded-xl" loading="lazy">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">باكدج</h3>
+                    <p class="text-gray-600 mb-4">جرب معظم منتجاتنا بسعر اقتصادي يشمل: Etch 5 gm, Edta 5 gm, MTA 0.25 gm, Resin sealer 6 gm, Caires detector 1ml.</p>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-xl font-bold text-teal-600">260 ج.م</span>
+                        <button class="product-link bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="باكدج">اطلب الآن</button>
+                    </div>
+                </div>
+
+                <!-- Product 6: Edta -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg product-card">
+                    <img src="edta.png" alt="Edta" class="w-full h-48 object-contain mb-4 rounded-xl" loading="lazy">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">Edta</h3>
+                    <p class="text-gray-600 mb-4">5 جرام: 170 جنيه</p>
+                    <button class="product-link mt-4 inline-block bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="Edta 5g">اطلب الآن</button>
+                </div>
+                
+                <!-- Product 7: Porcelain Acid Etch -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg product-card">
+                    <img src="porclean.png" alt="Porcelain Acid Etch" class="w-full h-48 object-contain mb-4 rounded-xl" loading="lazy">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">Porcelain Acid Etch</h3>
+                    <p class="text-gray-600 mb-4">2.5 جرام: 170 جنيه</p>
+                    <button class="product-link mt-4 inline-block bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="Porcelain Acid Etch 5g">اطلب الآن</button>
+                </div>
+
+                <!-- Product 8: HEMOSTATIC LIQUID -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg product-card">
+                    <img src="beld of.png" alt="HEMOSTATIC LIQUID" class="w-full h-48 object-contain mb-4 rounded-xl" loading="lazy">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">HEMOSTATIC LIQUID</h3>
+                    <p class="text-gray-600 mb-4">15 مل: 135 جنيه</p>
+                    <button class="product-link mt-4 inline-block bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="HEMOSTATIC LIQUID 15ml">اطلب الآن</button>
+                </div>
+                
+                <!-- Product 9: ROOT HEAL -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg product-card">
+                    <img src="root heal.png" alt="ROOT HEAL" class="w-full h-48 object-contain mb-4 rounded-xl" loading="lazy">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">ROOT HEAL</h3>
+                    <p class="text-gray-600 mb-4">منتج طبي للأسنان لضمان شفاء مثالي.</p>
+                    <button class="product-link mt-4 inline-block bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="ROOT HEAL">اطلب الآن</button>
+                </div>
+
+                <!-- Product 10: HOLDENT ADHESIVE -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg product-card">
+                    <img src="hole.PNG" alt="HOLDENT ADHESIVE" class="w-full h-48 object-contain mb-4 rounded-xl" loading="lazy">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">HOLDENT</h3>
+                    <p class="text-gray-600 mb-4">20 جرام: 155 جنيه</p>
+                    <button class="product-link mt-4 inline-block bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="HOLDENT 20g">اطلب الآن</button>
+                </div>
+                
+                <!-- Product 11: Caries detector dye -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg product-card">
+                    <img src="cdd.jpg" alt="Caries detector dye" class="w-full h-48 object-contain mb-4 rounded-xl" loading="lazy">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">Caries detector dye</h3>
+                    <p class="text-gray-600 mb-4">4 مل: 225 جنيه</p>
+                    <button class="product-link mt-4 inline-block bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300" data-product="Caries detector dye 4ml">اطلب الآن</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="py-20 px-4 bg-white">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-center gap-12">
+            <div class="text-center md:text-right md:w-1/2">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">اطلب الآن</h2>
+                <p class="text-xl text-gray-600 mb-8">
+                    املأ النموذج وسنتواصل معك في أقرب وقت لإتمام طلبك.
+                </p>
+                <img src="https://via.placeholder.com/400x400/f0f2f5/0b5351?text=Contact+Image" alt="Contact Us" class="rounded-lg shadow-xl hidden md:block">
+            </div>
+            <div class="w-full md:w-1/2 bg-gray-100 p-8 rounded-2xl shadow-lg">
+                <form id="orderForm" action="#" method="post" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-lg font-medium text-gray-700">الاسم بالكامل</label>
+                        <input type="text" id="name" name="name" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-full shadow-sm focus:ring-teal-500 focus:border-teal-500">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-lg font-medium text-gray-700">البريد الإلكتروني</label>
+                        <input type="email" id="email" name="email" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-full shadow-sm focus:ring-teal-500 focus:border-teal-500">
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-lg font-medium text-gray-700">رقم الهاتف</label>
+                        <input type="tel" id="phone" name="phone" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-full shadow-sm focus:ring-teal-500 focus:border-teal-500">
+                    </div>
+                    <div>
+                        <label for="address" class="block text-lg font-medium text-gray-700">العنوان</label>
+                        <input type="text" id="address" name="address" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-full shadow-sm focus:ring-teal-500 focus:border-teal-500">
+                    </div>
+                    <!-- حقل جديد لعرض المنتجات المختارة مع قائمة منسدلة لإضافة المزيد -->
+                    <div>
+                        <label class="block text-lg font-medium text-gray-700 mb-2">المنتجات المختارة</label>
+                        <div class="relative">
+                            <button type="button" id="toggle-products-list" class="flex items-center justify-between w-full px-4 py-2 text-right bg-gray-200 border border-gray-300 rounded-full shadow-sm focus:ring-teal-500 focus:border-teal-500">
+                                <span class="text-gray-600">إضافة المزيد من المنتجات</span>
+                                <i id="toggle-icon" class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <!-- قائمة المنتجات المنسدلة -->
+                            <div id="products-list-dropdown" class="absolute hidden w-full mt-2 bg-white border border-gray-300 rounded-xl shadow-lg max-h-60 overflow-y-auto z-10">
+                                <ul id="product-list-ul">
+                                    <!-- المنتجات سيتم إضافتها هنا عبر JavaScript -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="selected-products-container" class="space-y-4 p-4 border border-gray-300 rounded-xl bg-gray-50 mt-4">
+                            <p class="text-gray-500 text-sm" id="empty-cart-message">لم يتم اختيار أي منتجات بعد.</p>
+                        </div>
+                        
+                        <!-- إجمالي الفاتورة -->
+                        <div id="total-price-container" class="mt-4 p-4 rounded-xl bg-teal-100 text-teal-800 font-bold text-lg flex justify-between items-center hidden">
+                            <span>الإجمالي:</span>
+                            <span id="total-price">0 ج.م</span>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full bg-teal-600 text-white font-bold py-3 rounded-full text-lg hover:bg-teal-700 transition-colors duration-300 shadow-md">
+                            إرسال الطلب
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white text-center py-6">
+        <p>&copy; <span id="currentYear"></span> Dentleen. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <!-- Custom Confirmation Modal -->
+    <div id="confirmationModal" class="modal-overlay">
+        <div class="modal-content">
+            <h3 class="text-2xl font-bold mb-4">تأكيد الطلب</h3>
+            <div id="order-summary" class="text-gray-700 mb-6 text-right"></div>
+            <p class="text-gray-700 mb-6">هل أنت متأكد من إرسال هذا الطلب؟</p>
+            <div class="flex justify-center gap-4">
+                <button id="confirmYes" class="bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300">
+                    نعم
+                </button>
+                <button id="confirmNo" class="bg-gray-300 text-gray-800 px-6 py-2 rounded-full font-semibold hover:bg-gray-400 transition-colors duration-300">
+                    إلغاء
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Success Message Modal -->
+    <div id="successModal" class="modal-overlay">
+        <div class="modal-content">
+            <i class="fas fa-check-circle text-green-500 text-6xl mb-4"></i>
+            <h3 class="text-2xl font-bold mb-2">تم استلام طلبك!</h3>
+            <p class="text-gray-700">سنتواصل معك في أقرب وقت لإتمام الطلب. شكراً لك.</p>
+            <button id="closeSuccessModal" class="mt-6 bg-teal-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-teal-700 transition-colors duration-300">
+                إغلاق
+            </button>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="flex flex-col gap-4">
+        <div class="spinner"></div>
+        <p class="text-xl font-bold text-gray-700">جاري إرسال الطلب...</p>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, serverTimestamp, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Set Firebase debug logs
+        setLogLevel('debug');
+
+        // Global variables provided by the Canvas environment
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : '';
+        
+        // Initialize Firebase
+        let app, db, auth;
+        try {
+            app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            auth = getAuth(app);
+            
+            // Sign in anonymously
+            signInAnonymously(auth).catch((error) => {
+                console.error("Firebase Auth Error:", error);
+            });
+        } catch (e) {
+            console.error("Firebase Initialization Error:", e);
+        }
+
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+        const form = document.getElementById('orderForm');
+        const confirmationModal = document.getElementById('confirmationModal');
+        const successModal = document.getElementById('successModal');
+        const confirmYesBtn = document.getElementById('confirmYes');
+        const confirmNoBtn = document.getElementById('confirmNo');
+        const closeSuccessModalBtn = document.getElementById('closeSuccessModal');
+        const productsContainer = document.getElementById('selected-products-container');
+        const emptyCartMessage = document.getElementById('empty-cart-message');
+        const toggleListBtn = document.getElementById('toggle-products-list');
+        const productsListDropdown = document.getElementById('products-list-dropdown');
+        const toggleIcon = document.getElementById('toggle-icon');
+        const productListUL = document.getElementById('product-list-ul');
+        const loadingOverlay = document.getElementById('loadingOverlay');
+        const totalPriceContainer = document.getElementById('total-price-container');
+        const totalPriceSpan = document.getElementById('total-price');
+
+        // قائمة بجميع المنتجات المتاحة مع أسعارها
+        const allProducts = {
+            'SDF 1ml': { name: 'SDF 1ml', price: 400 },
+            'SDF 4ml': { name: 'SDF 4ml', price: 1190 },
+            'MTA 0.25g': { name: 'MTA 0.25 جرام', price: 50 },
+            'D-Seal 12g': { name: 'D-Seal 12 جرام', price: 400 },
+            'Etch 5g': { name: 'Etch 5 جرام', price: 50 },
+            'باكدج': { name: 'باكدج', price: 260 },
+            'Edta 5g': { name: 'Edta 5 جرام', price: 70 },
+            'Porcelain Acid Etch 5g': { name: 'Porcelain Acid Etch 5 جرام', price: 70 },
+            'HEMOSTATIC LIQUID 15ml': { name: 'HEMOSTATIC LIQUID 15 مل', price: 135 },
+            'ROOT HEAL': { name: 'ROOT HEAL', price: 'غير محدد' },
+            'HOLDENT 20g': { name: 'HOLDENT 20 جرام', price: 155 },
+            'Caries detector dye 4ml': { name: 'Caries detector dye 4 مل', price: 225 }
+        };
+
+        // قائمة المنتجات المختارة
+        let selectedProducts = [];
+
+        // دالة لحساب الإجمالي
+        function calculateTotal() {
+            let total = 0;
+            selectedProducts.forEach(product => {
+                if (typeof product.price === 'number') {
+                    total += product.price * product.quantity;
+                }
+            });
+            return total;
+        }
+
+        // دالة لعرض المنتجات في نموذج الطلب
+        function renderSelectedProducts() {
+            productsContainer.innerHTML = '';
+            if (selectedProducts.length === 0) {
+                emptyCartMessage.style.display = 'block';
+                productsContainer.appendChild(emptyCartMessage);
+                totalPriceContainer.classList.add('hidden');
+            } else {
+                emptyCartMessage.style.display = 'none';
+                totalPriceContainer.classList.remove('hidden');
+                selectedProducts.forEach(product => {
+                    const productItem = document.createElement('div');
+                    productItem.className = 'flex items-center justify-between bg-white p-4 rounded-xl shadow-sm border border-gray-200';
+                    const priceText = typeof product.price === 'number' ? product.price + ' ج.م' : 'غير محدد';
+                    
+                    productItem.innerHTML = `
+                        <div class="flex-grow font-medium">${product.name}</div>
+                        <div class="text-sm text-gray-500 ml-4">${priceText}</div>
+                        <div class="flex items-center gap-2">
+                            <input type="number" value="${product.quantity}" min="1" class="w-16 text-center border border-gray-300 rounded-lg focus:ring-teal-500 focus:border-teal-500" data-product-name="${product.name}">
+                            <button type="button" class="remove-product-btn text-red-500 hover:text-red-700 transition-colors" data-product-name="${product.name}">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    `;
+                    productsContainer.appendChild(productItem);
+                });
+
+                // إضافة مستمعي الأحداث لزر الإزالة وتعديل الكمية
+                productsContainer.querySelectorAll('.remove-product-btn').forEach(button => {
+                    button.addEventListener('click', (event) => {
+                        const productName = event.target.dataset.productName || event.target.closest('button').dataset.productName;
+                        selectedProducts = selectedProducts.filter(p => p.name !== productName);
+                        renderSelectedProducts();
+                    });
+                });
+
+                productsContainer.querySelectorAll('input[type="number"]').forEach(input => {
+                    input.addEventListener('input', (event) => {
+                        const productName = event.target.dataset.productName;
+                        const newQuantity = parseInt(event.target.value, 10);
+                        const product = selectedProducts.find(p => p.name === productName);
+                        if (product && newQuantity > 0) {
+                            product.quantity = newQuantity;
+                        } else if (newQuantity <= 0) {
+                            // إذا كانت الكمية صفر أو أقل، يتم إزالة المنتج
+                            selectedProducts = selectedProducts.filter(p => p.name !== productName);
+                            renderSelectedProducts();
+                        }
+                        // تحديث الإجمالي بعد تغيير الكمية
+                        totalPriceSpan.textContent = calculateTotal() + ' ج.م';
+                    });
+                });
+            }
+            totalPriceSpan.textContent = calculateTotal() + ' ج.م';
+        }
+
+        // دالة لإضافة منتج إلى سلة التسوق
+        function addProductToCart(productKey) {
+            const product = allProducts[productKey];
+            if (!product) return;
+
+            const existingProduct = selectedProducts.find(p => p.name === product.name);
+
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                selectedProducts.push({ name: product.name, quantity: 1, price: product.price });
+            }
+            renderSelectedProducts();
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // دالة لملء القائمة المنسدلة بالمنتجات
+        function populateProductDropdown() {
+            productListUL.innerHTML = '';
+            // Get all product keys from the allProducts object
+            const productKeys = Object.keys(allProducts);
+            productKeys.forEach(key => {
+                const li = document.createElement('li');
+                li.className = 'px-4 py-2 hover:bg-gray-100 cursor-pointer transition-colors';
+                li.textContent = allProducts[key].name;
+                li.dataset.product = key;
+                li.addEventListener('click', (event) => {
+                    addProductToCart(event.target.dataset.product);
+                    productsListDropdown.classList.add('hidden');
+                    toggleIcon.classList.remove('rotate-180');
+                });
+                productListUL.appendChild(li);
+            });
+        }
+        populateProductDropdown();
+
+        // إضافة مستمعي الأحداث لجميع أزرار "اطلب الآن"
+        const productLinks = document.querySelectorAll('.product-link');
+        productLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                const productKey = event.target.dataset.product;
+                addProductToCart(productKey);
+            });
+        });
+
+        // التعامل مع القائمة المنسدلة
+        toggleListBtn.addEventListener('click', () => {
+            productsListDropdown.classList.toggle('hidden');
+            toggleIcon.classList.toggle('rotate-180');
+        });
+
+        // إغلاق القائمة المنسدلة عند النقر خارجها
+        document.addEventListener('click', (event) => {
+            if (!toggleListBtn.contains(event.target) && !productsListDropdown.contains(event.target)) {
+                productsListDropdown.classList.add('hidden');
+                toggleIcon.classList.remove('rotate-180');
+            }
+        });
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // منع إرسال النموذج الافتراضي
+
+            if (selectedProducts.length === 0) {
+                const noProductMessage = document.createElement('div');
+                noProductMessage.className = 'bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4';
+                noProductMessage.textContent = 'الرجاء اختيار منتج واحد على الأقل قبل الإرسال.';
+                form.insertBefore(noProductMessage, form.lastElementChild);
+                setTimeout(() => noProductMessage.remove(), 3000);
+                return;
+            }
+            
+            // تحديث محتوى نافذة التأكيد
+            const orderSummaryDiv = document.getElementById('order-summary');
+            let summaryHTML = '<ul>';
+            selectedProducts.forEach(product => {
+                const priceText = typeof product.price === 'number' ? product.price + ' ج.م' : 'غير محدد';
+                const itemTotal = typeof product.price === 'number' ? (product.price * product.quantity) + ' ج.م' : 'غير محدد';
+                summaryHTML += `<li><i class="fas fa-check-circle text-green-500 ml-2"></i><strong>${product.name}</strong> - الكمية: ${product.quantity} - السعر: ${priceText} - الإجمالي: ${itemTotal}</li>`;
+            });
+            summaryHTML += `</ul><div class="mt-4 font-bold text-lg">الإجمالي الكلي: ${calculateTotal()} ج.م</div>`;
+            orderSummaryDiv.innerHTML = summaryHTML;
+
+            // إظهار نافذة التأكيد
+            confirmationModal.style.display = 'flex';
+        });
+
+        // التعامل مع النقر على زر 'نعم' (إرسال الطلب إلى Firestore)
+        confirmYesBtn.addEventListener('click', async function() {
+            confirmationModal.style.display = 'none';
+            loadingOverlay.style.display = 'flex';
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            
+            const userId = auth.currentUser ? auth.currentUser.uid : 'anonymous';
+
+            const orderData = {
+                name: name,
+                email: email,
+                phone: phone,
+                address: address,
+                products: selectedProducts,
+                totalPrice: calculateTotal(),
+                timestamp: serverTimestamp(),
+                userId: userId
+            };
+
+            try {
+                const ordersCollectionRef = collection(db, 'artifacts', appId, 'public', 'orders');
+                await addDoc(ordersCollectionRef, orderData);
+                console.log("Order successfully written to Firestore!");
+                loadingOverlay.style.display = 'none';
+                successModal.style.display = 'flex';
+                form.reset();
+                selectedProducts = [];
+                renderSelectedProducts();
+            } catch (error) {
+                console.error("Error writing document to Firestore: ", error);
+                loadingOverlay.style.display = 'none';
+                // يمكنك إضافة نافذة منبثقة أو رسالة خطأ هنا
+            }
+        });
+
+        // التعامل مع النقر على زر 'إلغاء'
+        confirmNoBtn.addEventListener('click', () => {
+            confirmationModal.style.display = 'none';
+        });
+
+        // إغلاق نافذة النجاح
+        closeSuccessModalBtn.addEventListener('click', () => {
+            successModal.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
