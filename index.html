@@ -82,6 +82,21 @@
         }
 
         /* ---------------------------------------------------- */
+        /* 🚀 تحسينات الأداء للموبايل (لمنع التهنيج)           */
+        /* ---------------------------------------------------- */
+        @media (max-width: 768px) {
+            /* إيقاف تأثيرات الزجاج الثقيلة على الموبايل لتسريع الأداء */
+            .glass-panel, .glass-header, .modal-overlay, #loading-overlay {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                background: rgba(15, 23, 42, 0.98) !important;
+            }
+            .product-card {
+                background: rgba(30, 41, 59, 1);
+            }
+        }
+
+        /* ---------------------------------------------------- */
         /* 🎈 الحركات والتأثيرات الحركية (Animations)          */
         /* ---------------------------------------------------- */
         
@@ -162,7 +177,8 @@
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
             background: radial-gradient(circle at top right, #0f2b3c 0%, #0b1329 100%);
             z-index: 2000; overflow-y: auto;
-            transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateX(100%); transition: transform 0.3s ease-out;
+            will-change: transform; /* تسريع معالجة الحركة لمنع التهنيج */
         }
         .full-page-view.active { transform: translateX(0); }
         
@@ -187,6 +203,10 @@
         ::-webkit-scrollbar-track { background: #0b1329; }
         ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 6px; border: 2px solid #0b1329; }
         ::-webkit-scrollbar-thumb:hover { background: #14b8a6; }
+        
+        /* إخفاء شريط التمرير للقوائم الأفقية */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body class="text-slate-100">
@@ -213,50 +233,39 @@
     </div>
 
     <!-- الهيدر (الشريط العلوي التفاعلي المصنفر) -->
-    <header class="glass-header p-4 sticky top-0 z-50 transition-all duration-300">
-        <div class="container mx-auto flex justify-between items-center">
+    <header class="glass-header p-3 md:p-4 sticky top-0 z-50 transition-all duration-300">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-3 md:gap-0">
             
             <!-- اللوجو التفاعلي المبتكر -->
-            <div class="flex items-center gap-3 cursor-pointer group" onclick="window.showMainView()">
-                <div class="relative w-12 h-12 bg-gradient-to-br from-teal-500/30 to-cyan-500/10 rounded-2xl flex items-center justify-center border border-teal-400/40 shadow-lg group-hover:scale-105 transition duration-300">
-                    <i class="fas fa-tooth text-2xl text-teal-300 group-hover:rotate-12 transition duration-300"></i>
-                    <span class="absolute -top-1 -right-1 flex h-3 w-3">
+            <div class="flex items-center gap-3 cursor-pointer group w-full justify-center md:w-auto md:justify-start" onclick="window.showMainView()">
+                <div class="relative w-10 h-10 md:w-12 md:h-12 rounded-2xl flex items-center justify-center group-hover:scale-105 transition duration-300">
+                    <img src="logo.png" alt="Dentleen Logo" class="w-full h-full object-contain drop-shadow-[0_0_8px_rgba(45,212,191,0.5)]" onerror="this.src='https://placehold.co/100x100/0f172a/2dd4bf?text=D'">
+                    <span class="absolute -top-1 -right-1 flex h-2 w-2 md:h-3 md:w-3">
                       <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
-                      <span class="relative inline-flex rounded-full h-3 w-3 bg-teal-500"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 md:h-3 md:w-3 bg-teal-500"></span>
                     </span>
                 </div>
                 <div>
-                    <span class="text-2xl font-black tracking-wider shimmer-text block leading-none">DENTLEEN</span>
-                    <span class="text-[10px] text-teal-300/80 font-bold tracking-widest block mt-1">DENTAL SUPPLIES</span>
+                    <span class="text-xl md:text-2xl font-black tracking-wider shimmer-text flex items-center leading-none">
+                        DENTLEEN
+                    </span>
+                    <span class="text-[9px] md:text-[10px] text-teal-300/80 font-bold tracking-widest block mt-1">DENTAL SUPPLIES</span>
                 </div>
             </div>
             
-            <!-- روابط التنقل للشاشات الكبيرة -->
-            <nav class="hidden md:flex items-center gap-8 font-semibold text-slate-300 text-sm">
-                <a href="#products" onclick="window.showMainView()" class="hover:text-teal-300 transition duration-300 flex items-center gap-2">
+            <!-- روابط التنقل (تظهر دائما كشريط) -->
+            <nav class="flex items-center justify-center gap-2 md:gap-8 font-semibold text-slate-300 text-[11px] md:text-sm w-full md:w-auto overflow-x-auto pb-1 md:pb-0 hide-scrollbar">
+                <a href="#products" onclick="window.showMainView()" class="hover:text-teal-300 transition duration-300 flex items-center gap-1.5 whitespace-nowrap bg-slate-800/40 border border-slate-700/50 md:border-transparent md:bg-transparent px-4 py-1.5 md:p-0 rounded-full">
                     <i class="fas fa-cubes text-teal-400 text-xs"></i> المنتجات
                 </a>
-                <a href="#feedback-section" onclick="window.showMainView()" class="hover:text-sky-300 transition duration-300 flex items-center gap-2">
+                <a href="#feedback-section" onclick="window.showMainView()" class="hover:text-sky-300 transition duration-300 flex items-center gap-1.5 whitespace-nowrap bg-slate-800/40 border border-slate-700/50 md:border-transparent md:bg-transparent px-4 py-1.5 md:p-0 rounded-full">
                     <i class="fas fa-comment-dots text-sky-400 text-xs"></i> آراء الأطباء
                 </a>
-                <a href="#contact-us" onclick="window.showMainView()" class="hover:text-emerald-300 transition duration-300 flex items-center gap-2">
+                <a href="#contact-us" onclick="window.showMainView()" class="hover:text-emerald-300 transition duration-300 flex items-center gap-1.5 whitespace-nowrap bg-slate-800/40 border border-slate-700/50 md:border-transparent md:bg-transparent px-4 py-1.5 md:p-0 rounded-full">
                     <i class="fas fa-headset text-emerald-400 text-xs"></i> تواصل معنا
                 </a>
             </nav>
             
-            <!-- زر القائمة للموبايل -->
-            <div class="flex items-center gap-3 md:hidden">
-                <button class="text-slate-200 text-2xl p-2 rounded-xl bg-slate-800/80 border border-slate-700" id="mobile-menu-btn" aria-label="فتح القائمة">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- القائمة المنسدلة للموبايل -->
-        <div id="mobile-menu" class="hidden glass-panel mt-3 p-5 rounded-2xl border border-teal-500/20 text-center space-y-4 shadow-2xl md:hidden">
-             <a href="#products" onclick="window.showMainView();window.toggleMobileMenu()" class="block py-2.5 text-teal-300 border-b border-slate-800 font-bold">المنتجات</a>
-             <a href="#feedback-section" onclick="window.showMainView();window.toggleMobileMenu()" class="block py-2.5 text-sky-300 border-b border-slate-800 font-bold">آراء الأطباء</a>
-             <a href="#contact-us" onclick="window.showMainView();window.toggleMobileMenu()" class="block py-2.5 text-emerald-300 font-bold">تواصل معنا</a>
         </div>
     </header>
 
@@ -327,8 +336,8 @@
         </section>
 
         <!-- قسم المنتجات الفردية -->
-        <section id="products" class="py-20 container mx-auto px-4">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-slate-800 pb-6">
+        <section id="products" class="py-20 container mx-auto px-2 md:px-4">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-12 border-b border-slate-800 pb-6 px-2 md:px-0">
                 <div>
                     <span class="text-teal-400 text-xs font-bold tracking-widest uppercase block mb-1">المنتجات الطبية</span>
                     <h2 class="text-3xl md:text-4xl font-extrabold text-white">مستلزمات طب الأسنان الأساسية</h2>
@@ -337,7 +346,7 @@
             </div>
             
             <!-- شبكة عرض المنتجات ديناميكياً -->
-            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8"></div>
+            <div id="products-grid" class="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-8"></div>
         </section>
 
         <!-- قسم آراء العملاء والأطباء -->
@@ -350,6 +359,10 @@
                 </div>
                 
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    <!-- الصورة الجديدة المضافة لنتائج مزيل التصبغ -->
+                    <div class="glass-panel p-2 rounded-2xl overflow-hidden cursor-pointer hover:border-teal-400/50 transition group" onclick="window.openImageModal('image_eb4015.jpg')">
+                        <img src="image_eb4015.jpg" alt="رأي طبيب (إزالة تصبغات)" class="w-full h-36 object-cover rounded-xl group-hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300x400/1e293b/2dd4bf?text=رأي+طبيب'">
+                    </div>
                     <!-- صور آراء العملاء (تفتح مكبرة عند الضغط عليها) -->
                     <div class="glass-panel p-2 rounded-2xl overflow-hidden cursor-pointer hover:border-teal-400/50 transition group" onclick="window.openImageModal('a.jpg')">
                         <img src="a.jpg" alt="رأي عميل 1" class="w-full h-36 object-cover rounded-xl group-hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300x400/1e293b/2dd4bf?text=رأي+طبيب'">
@@ -652,7 +665,7 @@
                 img: 'Spotaway.png',      
                 desc: 'Spotaway — لإزالة البقع المستعصية وتبييض سطح الأسنان موضعياً.', 
                 type: 'product',
-                reviewImages: [] 
+                 reviewImages: ['d1.jpg'] 
             },
             { 
                 id: 'p15', 
@@ -789,25 +802,26 @@
 
             PRODUCTS_DATA.forEach(p => {
                 const cardHTML = `
-                    <div class="product-card rounded-3xl overflow-hidden cursor-pointer group reveal-on-scroll relative flex flex-col justify-between" onclick="window.openProductPage('${p.id}')">
+                    <div class="product-card rounded-xl md:rounded-3xl overflow-hidden cursor-pointer group reveal-on-scroll relative flex flex-col justify-between" onclick="window.openProductPage('${p.id}')">
                         
                         <!-- صورة المنتج الممتازة -->
-                        <div class="h-52 bg-slate-900/60 flex items-center justify-center p-6 relative overflow-hidden">
+                        <div class="h-24 md:h-52 bg-slate-900/60 flex items-center justify-center p-2 md:p-6 relative overflow-hidden">
                             <div class="absolute inset-0 bg-teal-500/5 group-hover:bg-teal-500/15 transition duration-500"></div>
                             <img src="${p.img}" alt="${p.name}" loading="lazy" class="h-full object-contain relative z-10 transform group-hover:scale-110 group-hover:-rotate-1 transition duration-500" onerror="this.src='https://placehold.co/250x250/0f172a/2dd4bf?text=Dentleen'">
                         </div>
                         
                         <!-- معلومات المنتج والزر -->
-                        <div class="p-5 text-right flex-1 flex flex-col justify-between">
+                        <div class="p-2 md:p-5 text-right flex-1 flex flex-col justify-between">
                             <div>
-                                <h3 class="font-bold text-lg text-white group-hover:text-teal-300 transition duration-300 mb-2">${p.name}</h3>
-                                <p class="text-xs text-slate-400 line-clamp-2 mb-4 leading-relaxed">${p.desc}</p>
+                                <h3 class="font-bold text-[10px] md:text-lg text-white group-hover:text-teal-300 transition duration-300 mb-1 md:mb-2 line-clamp-2 md:line-clamp-1 leading-tight min-h-[30px] md:min-h-0">${p.name}</h3>
+                                <p class="hidden md:block text-xs text-slate-400 line-clamp-2 mb-4 leading-relaxed">${p.desc}</p>
                             </div>
                             <div>
-                                <div class="text-teal-300 font-black text-2xl mb-3">${p.price.toLocaleString('ar-EG')} <span class="text-xs font-normal text-slate-400">ج.م</span></div>
-                                <div class="w-full bg-slate-800/80 group-hover:bg-gradient-to-r group-hover:from-teal-500 group-hover:to-cyan-500 text-slate-300 group-hover:text-slate-950 font-extrabold text-xs py-3 rounded-xl transition-all duration-300 text-center flex items-center justify-center gap-2 border border-slate-700/60 group-hover:border-transparent">
-                                    <span>عرض التفاصيل والطلب</span>
-                                    <i class="fas fa-chevron-left text-[10px] group-hover:-translate-x-1 transition duration-300"></i>
+                                <div class="text-teal-300 font-black text-sm md:text-2xl mb-2 md:mb-3 mt-1 md:mt-0">${p.price.toLocaleString('ar-EG')} <span class="text-[8px] md:text-xs font-normal text-slate-400">ج.م</span></div>
+                                <div class="w-full bg-slate-800/80 group-hover:bg-gradient-to-r group-hover:from-teal-500 group-hover:to-cyan-500 text-slate-300 group-hover:text-slate-950 font-bold md:font-extrabold text-[9px] md:text-xs py-1.5 md:py-3 rounded-lg md:rounded-xl transition-all duration-300 text-center flex items-center justify-center gap-1 md:gap-2 border border-slate-700/60 group-hover:border-transparent shadow-sm">
+                                    <span class="md:hidden">طلب</span>
+                                    <span class="hidden md:inline">عرض التفاصيل والطلب</span>
+                                    <i class="fas fa-chevron-left text-[8px] md:text-[10px] group-hover:-translate-x-1 transition duration-300"></i>
                                 </div>
                             </div>
                         </div>
